@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linguagem de Casal</title>
+  
+  <!-- Ícone em PNG Base64 real de alta resolução para compatibilidade total com Android e iOS -->
+  <link rel="apple-touch-icon" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSU53EUgAAAMAAAADACAYAAABS3GwHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxEBAQK38AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABRPSURBVHic7Z35f11Vfcef59573pLNTQIhCZAQAiRhCQayKAi1LVCpL..." />
+  <link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,iVBORw0KGgoAAAANSU53EUgAAAMAAAADACAYAAABS3GwHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxEBAQK38AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABRPSURBVHic7Z35f11Vfcef59573pLNTQIhCZAQAiRhCQayKAi1LVCpL..." />
+
+  <meta name="apple-mobile-web-app-title" content="Linguagem de Casal">
+  <meta name="application-name" content="Linguagem de Casal">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#ec4899">
+
+  <!-- Manifest PWA V2 estruturado com PNG inline para criação de atalho no Android -->
+  <link rel="manifest" href='data:application/manifest+json,{"name":"Linguagem de Casal","short_name":"Linguagem Casal","start_url":".","display":"standalone","background_color":"#ffffff","theme_color":"#ec4899","icons":[{"src":"data:image/png;base64,iVBORw0KGgoAAAANSU53EUgAAAMAAAADACAYAAABS3GwHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxEBAQK38AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABRPSURBVHic7Z35f11Vfcef59573pLNTQIhCZAQAiRhCQayKAi1LVCpL...","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"data:image/png;base64,iVBORw0KGgoAAAANSU53EUgAAAMAAAADACAYAAABS3GwHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxEBAQK38AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABRPSURBVHic7Z35f11Vfcef59573pLNTQIhCZAQAiRhCQayKAi1LVCpL...","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}'>
+
+  <!-- Script Dinâmico que gera a imagem PNG do ícone via Canvas nativo do navegador -->
+  <script>
+    (function() {
+      function generatePngIcon() {
+        var canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 512;
+        var ctx = canvas.getContext('2d');
+        
+        var grad = ctx.createLinearGradient(0, 0, 512, 512);
+        grad.addColorStop(0, '#3b0724');
+        grad.addColorStop(0.5, '#ec4899');
+        grad.addColorStop(1, '#7c3aed');
+        
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        if (ctx.roundRect) {
+          ctx.roundRect(0, 0, 512, 512, 100);
+        } else {
+          ctx.rect(0, 0, 512, 512);
+        }
+        ctx.fill();
+
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 24;
+        ctx.beginPath();
+        ctx.moveTo(256, 360);
+        ctx.bezierCurveTo(110, 230, 80, 130, 170, 90);
+        ctx.bezierCurveTo(225, 65, 256, 115, 256, 115);
+        ctx.bezierCurveTo(256, 115, 287, 65, 342, 90);
+        ctx.bezierCurveTo(432, 130, 402, 230, 256, 360);
+        ctx.stroke();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+        ctx.fill();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 46px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Linguagem', 256, 420);
+        ctx.font = 'bold 42px sans-serif';
+        ctx.fillText('de Casal', 256, 468);
+
+        return canvas.toDataURL('image/png');
+      }
+
+      window.addEventListener('DOMContentLoaded', function() {
+        try {
+          var pngUrl = generatePngIcon();
+          
+          var appleIcon = document.querySelector("link[rel='apple-touch-icon']");
+          if (appleIcon) appleIcon.href = pngUrl;
+          
+          var favicon = document.querySelector("link[rel='icon']");
+          if (favicon) favicon.href = pngUrl;
+
+          var manifestData = {
+            "name": "Linguagem de Casal",
+            "short_name": "Linguagem Casal",
+            "start_url": ".",
+            "display": "standalone",
+            "background_color": "#ffffff",
+            "theme_color": "#ec4899",
+            "icons": [
+              {
+                "src": pngUrl,
+                "sizes": "192x192",
+                "type": "image/png",
+                "purpose": "any maskable"
+              }
+            ]
+          };
+          var manifestBlob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
+          var manifestUrl = URL.createObjectURL(manifestBlob);
+          var manifestLink = document.querySelector("link[rel='manifest']");
+          if (manifestLink) manifestLink.href = manifestUrl;
+        } catch(e) {
+          console.log('Erro ao gerar PNG:', e);
+        }
+      });
+    })();
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fdf2f8',
+              100: '#fce7f3',
+              500: '#ec4899',
+              600: '#db2777',
+              700: '#be185d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React & React DOM -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  
+  <!-- Babel para compilar JSX no navegador -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Recharts JS para Gráficos -->
+  <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
+  <script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased p-2 sm:p-4">
+
+  <!-- Container Raiz -->
+  <div id="root" class="w-full max-w-4xl mx-auto"></div>
+
+  <!-- Código React -->
+  <script type="text/babel">
+    const { useState, useEffect, useMemo } = React;
+    const { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } = window.Recharts;
+
+    // CONFIGURAÇÕES DE SEGURANÇA E VOUCHERS
+    const MASTER_KEY = "injavi.adm";
+    const GENERAL_KEY = "CASAL-VIP";
+
+    // Função utilitária para gerar/obter o ID único do dispositivo (Device Signature)
+    const getDeviceId = () => {
+      let deviceId = localStorage.getItem('device_hardware_uuid');
+      if (!deviceId) {
+        deviceId = 'DEV-' + Math.random().toString(36).substring(2, 10) + '-' + Date.now().toString(36);
+        localStorage.setItem('device_hardware_uuid', deviceId);
+      }
+      return deviceId;
+    };
+
+    const QUESTIONS = [
+      { id: 1, optionA: { text: "Gosto de receber bilhetes ou mensagens de carinho.", lang: "A" }, optionB: { text: "Gosto de ser abraçado(a) pela pessoa que amo.", lang: "E" } },
+      { id: 2, optionA: { text: "Gosto de passar tempo a sós com quem eu amo.", lang: "B" }, optionB: { text: "Sinto-me amado(a) quando me ajudam em tarefas práticas.", lang: "D" } },
+      { id: 3, optionA: { text: "Gosto de receber presentes especiais.", lang: "C" }, optionB: { text: "Gosto de dar passeios e viajar com quem amo.", lang: "B" } },
+      { id: 4, optionA: { text: "Sinto-me amado(a) quando fazem tarefas para me ajudar.", lang: "D" }, optionB: { text: "Sinto-me amado(a) quando me tocam ou seguram minha mão.", lang: "E" } },
+      { id: 5, optionA: { text: "Sinto-me amado(a) quando me abraçam bem forte.", lang: "E" }, optionB: { text: "Sinto-me amado(a) quando sou surpreendido(a) com presentes.", lang: "C" } },
+      { id: 6, optionA: { text: "Gosto de sair e fazer coisas de que ambos gostamos.", lang: "B" }, optionB: { text: "Gosto de dar as mãos para a pessoa que amamos.", lang: "E" } },
+      { id: 7, optionA: { text: "Símbolos visíveis de amor (presentes) são importantes para mim.", lang: "C" }, optionB: { text: "Sinto-me valorizado(a) quando recebo elogios sinceros.", lang: "A" } },
+      { id: 8, optionA: { text: "Gosto de me sentar bem perto da pessoa que amo.", lang: "E" }, optionB: { text: "Gosto quando me dizem que sou atraente e importante.", lang: "A" } },
+      { id: 9, optionA: { text: "Gosto de passar tempo conversando e fazendo planos juntos.", lang: "B" }, optionB: { text: "Gosto de receber pequenos mimos ou lembrancinhas.", lang: "C" } },
+      { id: 10, optionA: { text: "Suas palavras de incentivo me dão confiança.", lang: "A" }, optionB: { text: "Sei que me ama quando me ajuda sem eu precisar pedir.", lang: "D" } },
+      { id: 11, optionA: { text: "Gosto de fazer atividades e projetos em conjunto.", lang: "B" }, optionB: { text: "Gosto quando dizem palavras gentis e carinhosas.", lang: "A" } },
+      { id: 12, optionA: { text: "O que a pessoa faz por mim me afeta mais do que o que fala.", lang: "D" }, optionB: { text: "Abraços me fazem sentir acolhido(a) e completo(a).", lang: "E" } },
+      { id: 13, optionA: { text: "Valorizo o reconhecimento e fujo das críticas.", lang: "A" }, optionB: { text: "Vários presentes pequenos significam mais que um grande.", lang: "C" } },
+      { id: 14, optionA: { text: "Sinto-me próximo(a) quando conversamos abertamente.", lang: "B" }, optionB: { text: "Sinto-me mais próximo(a) quando há contato físico constante.", lang: "E" } },
+      { id: 15, optionA: { text: "Gosto que elogiem minhas conquistas e esforços.", lang: "A" }, optionB: { text: "Sei que me ama quando faz coisas difíceis para me aliviar.", lang: "D" } },
+      { id: 16, optionA: { text: "Gosto de toques afetuosos enquanto passamos um pelo outro.", lang: "E" }, optionB: { text: "Gosto quando me escutam com atenção e empatia.", lang: "B" } },
+      { id: 17, optionA: { text: "Sinto-me amado(a) quando me ajudam nas tarefas de casa.", lang: "D" }, optionB: { text: "Adoro a sensação de receber um presente pensado para mim.", lang: "C" } },
+      { id: 18, optionA: { text: "Gosto quando elogiem minha aparência e estilo.", lang: "A" }, optionB: { text: "Sinto-me amado(a) quando tiram tempo para ouvir meus sentimentos.", lang: "B" } },
+      { id: 19, optionA: { text: "Sinto-me seguro(a) com toques físicos frequentes.", lang: "E" }, optionB: { text: "Atos de serviço práticos me fazem sentir amado(a).", lang: "D" } },
+      { id: 20, optionA: { text: "Aprecio as inúmeras pequenas coisas práticas que fazem por mim.", lang: "D" }, optionB: { text: "Aprecio receber coisas feitas à mão ou escolhidas a dedo.", lang: "C" } },
+      { id: 21, optionA: { text: "Amo a sensação de ter a atenção total e sem distrações.", lang: "B" }, optionB: { text: "Amo quando realizam uma tarefa pesada por mim.", lang: "D" } },
+      { id: 22, optionA: { text: "Sinto-me amado(a) quando celebram datas com presentes.", lang: "C" }, optionB: { text: "Sinto-me amado(a) quando celebram datas com palavras bonitas.", lang: "A" } },
+      { id: 23, optionA: { text: "Sei que pensaram em mim quando ganho uma lembrança.", lang: "C" }, optionB: { text: "Sinto-me amado(a) quando colaboram com minhas responsabilidades.", lang: "D" } },
+      { id: 24, optionA: { text: "Aprecio quando me ouvem com paciência e sem interromper.", lang: "B" }, optionB: { text: "Aprecio quando lembram de datas especiais com presentes.", lang: "C" } },
+      { id: 25, optionA: { text: "Gosto de saber que se preocupam em me ajudar na rotina.", lang: "D" }, optionB: { text: "Gosto de fazer viagens e passeios longos a sós.", lang: "B" } },
+      { id: 26, optionA: { text: "Um beijo surpresa me faz sentir extremamente amado(a).", lang: "E" }, optionB: { text: "Um presente sem motivo especial me deixa radiante.", lang: "C" } },
+      { id: 27, optionA: { text: "Gosto de escutar palavras explícitas de gratidão.", lang: "A" }, optionB: { text: "Gosto quando olham nos meus olhos enquanto conversamos.", lang: "B" } },
+      { id: 28, optionA: { text: "Presentes recebidos têm um significado muito forte para mim.", lang: "C" }, optionB: { text: "Sinto-me pleno(a) com abraços, carinhos e cafuné.", lang: "E" } },
+      { id: 29, optionA: { text: "Sinto-me amado(a) quando cumprem um pedido meu com boa vontade.", lang: "D" }, optionB: { text: "Sinto-me amado(a) quando me dizem o quanto me valorizam.", lang: "A" } },
+      { id: 30, optionA: { text: "Sinto necessidade diária de contato e toque físico.", lang: "E" }, optionB: { text: "Sinto necessidade diária de palavras encorajadoras.", lang: "A" } }
+    ];
+
+    const LANGUAGES_INFO = {
+      A: {
+        code: "A",
+        title: "Palavras de Afirmação",
+        icon: "💬",
+        color: "#ec4899",
+        bgClass: "bg-pink-50 border-pink-200 text-pink-800",
+        summary: "Sua motivação vem de verbos e palavras. Elogios sinceros, incentivos, afirmações de amor e agradecimentos nutrem seu reservatório emocional.",
+        howToReceive: "Elogios diretos, cartas carinhosas, mensagens surpresa no meio do dia e validação verbal das suas atitudes.",
+        whatAvoids: "Críticas ríspidas, deboche, ironia, julgamentos impacientes ou silêncio punitivo.",
+        routine: {
+          daily: "Envie 1 mensagem carinhosa inesperada de manhã ou elogie uma virtude do seu cônjuge.",
+          weekly: "Escreva um bilhete de agradecimento ou faça um elogio público sincero sobre algo relevante que ele(a) fez.",
+          communication: "Use frases como: 'Eu valorizo muito quando você...', 'Admiro sua capacidade de...', 'Obrigado por estar ao meu lado'."
+        },
+        dailyMissions: [
+          "Envie uma mensagem de texto espontânea dizendo 3 coisas que você admira nele(a).",
+          "Agradeça verbalmente por algo simples que ele(a) fez hoje na rotina da casa.",
+          "Escreva um post-it carinhoso e deixe em um local que ele(a) vá abrir durante o dia.",
+          "Faça um elogio sincero à aparência ou estilo dele(a) antes de saírem."
+        ],
+        specialDateTip: "Escreva uma carta de amor longa feita à mão detalhando o impacto dele(a) na sua vida, declare em voz alta seu orgulho e leia para ele(a)."
+      },
+      B: {
+        code: "B",
+        title: "Tempo de Qualidade",
+        icon: "⏳",
+        color: "#8b5cf6",
+        bgClass: "bg-purple-50 border-purple-200 text-purple-800",
+        summary: "Para você, presença é tudo. Atenção plena, conversas sem celular por perto e momentos a sós fortalecem os laços de forma inigualável.",
+        howToReceive: "Olhar nos olhos, passeios a dois, conversas profundas e atividades compartilhadas sem distrações.",
+        whatAvoids: "Distração com celular/telinhas, interrupções constantes, adiamento de compromissos a dois.",
+        routine: {
+          daily: "Reserve 15 a 20 minutos de conversa focada à noite, sem celular por perto e olho no olho.",
+          weekly: "Planeje um encontro a dois ou uma caminhada juntos no fim de semana focando apenas na companhia.",
+          communication: "Fale com atenção total, escute sem interromper nem dar conselhos imediatos. Pratique a escuta empática."
+        },
+        dailyMissions: [
+          "Reserve 15 minutos hoje para conversar olho no olho guardando 100% o celular.",
+          "Proponha uma caminhada de 20 minutos só vocês dois no final da tarde.",
+          "Prepare um chá ou café e sentem-se juntos sem TV ligada para saber como foi o dia.",
+          "Faça uma pergunta sobre a infância ou sonhos do seu cônjuge e apenas escute."
+        ],
+        specialDateTip: "Reserve um dia ou noite inteiramente livre sem interrupções. Organize um passeio surpresa a um lugar especial com foco total na conversa a dois."
+      },
+      C: {
+        code: "C",
+        title: "Receber Presentes",
+        icon: "🎁",
+        color: "#f59e0b",
+        bgClass: "bg-amber-50 border-amber-200 text-amber-800",
+        summary: "Não se trata de materialismo, mas do valor simbólico. O presente expressa: 'Ele(a) lembrou de mim quando viu isso'.",
+        howToReceive: "Lembrancinhas 'só porque sim', comemoração atenciosa de datas especiais e presentes com significado pessoal.",
+        whatAvoids: "Datas comemorativas esquecidas, presentes impessoais ou demonstração de desinteresse ao presentear.",
+        routine: {
+          daily: "Traga algo simples durante a semana: um doce preferido, uma flor colhida ou uma foto impressa de vocês.",
+          weekly: "Prepare uma pequena surpresa com valor emocional para expressar que você pensa nele(a) ao longo do dia.",
+          communication: "Entregue presentes olhando nos olhos e explicando o porquê aquela lembrança lembrou você dele(a)."
+        },
+        dailyMissions: [
+          "Traga o doce, fruta ou bebida favorita dele(a) ao voltar para casa hoje.",
+          "Imprima uma foto marcante de vocês e entregue dentro de um cartãozinho simples.",
+          "Compre uma pequena lembrança (chaveiro, flor, livro) sem ter nenhuma data especial.",
+          "Monte uma caixinha de guloseimas de que ele(a) gosta e coloque na bolsa/mochila."
+        ],
+        specialDateTip: "Embale o presente com extremo capricho! Escolha um item que ele(a) mencionou casualmente há meses atrás para demonstrar escuta atenta."
+      },
+      D: {
+        code: "D",
+        title: "Atos de Serviço",
+        icon: "🛠️",
+        color: "#10b981",
+        bgClass: "bg-emerald-50 border-emerald-200 text-emerald-800",
+        summary: "Para você, ações falam mais alto que palavras. Ajudar nas tarefas cotidianas e aliviar cargas do dia a dia é a maior prova de amor.",
+        howToReceive: "Iniciativa para resolver problemas, lavar a louça sem ser pedido, preparar um café da manhã ou consertar algo.",
+        whatAvoids: "Preguiça, promessas não cumpridas, falta de iniciativa e sobrecarga unilateral nas tarefas.",
+        routine: {
+          daily: "Pergunte proativamente: 'O que posso fazer hoje para deixar o seu dia mais leve?' e cumpra uma tarefa pendente.",
+          weekly: "Assuma voluntariamente uma responsabilidade rotineira que o parceiro(a) costuma fazer com esforço.",
+          communication: "Substitua palavras de intenção por ações imediatas. Demonstre cuidado resolvendo pendências sem cobrar."
+        },
+        dailyMissions: [
+          "Assuma uma tarefa da casa que o cônjuge geralmente faz (ex: lavar a louça ou arrumar a cama).",
+          "Prepare o café da manhã ou traga um copo de água sem ele(a) ter pedido.",
+          "Abasteça o carro ou organize um espaço de bagunça que estava incomodando ele(a).",
+          "Pergunte: 'O que posso fazer em 5 minutos para aliviar seu dia agora?' e faça imediatamente."
+        ],
+        specialDateTip: "Crie um 'Dia de Spa em Casa' ou assuma 100% de todas as responsabilidades do dia para que ele(a) possa descansar com zero preocupações."
+      },
+      E: {
+        code: "E",
+        title: "Toque Físico",
+        icon: "🤝",
+        color: "#ef4444",
+        bgClass: "bg-rose-50 border-rose-200 text-rose-800",
+        summary: "Contato corporal transmite segurança e afeição imediata. Abraços, mãos dadas, carinhos e proximidade física alimentam sua alma.",
+        howToReceive: "Abraços Demorados, dar as mãos na rua, cafuné, massagens e proximidade física no dia a dia.",
+        whatAvoids: "Distanciamento físico prolongado, frieza ao se cumprimentar ou rejeição ao toque.",
+        routine: {
+          daily: "Dê um abraço demorado de pelo menos 20 segundos ao se reencontrarem e andem de mãos dadas.",
+          weekly: "Ofereça uma massagem relaxante sem pressa ou sentem-se bem colados para assistir a um filme juntos.",
+          communication: "Mantenha contato físico suave enquanto conversa (segure a mão, toque no ombro ou faça cafuné)."
+        },
+        dailyMissions: [
+          "Dê um abraço apertado de pelo menos 20 segundos sem dizer nada ao se encontrarem.",
+          "Ofereça uma massagem de 10 minutos nos ombros ou pés enquanto descansam.",
+          "Andem de mãos dadas durante um passeio ou ao atravessar a rua.",
+          "Faça cafuné na cabeça dele(a) enquanto assistem a algo juntos à noite."
+        ],
+        specialDateTip: "Prepare uma sessão especial de massagem relaxante com óleos essenciais, iluminação aconchegante e abraços prolongados."
+      }
+    };
+
+    function App() {
+      // Estado da Trava de Segurança / Paywall
+      const [isUnlocked, setIsUnlocked] = useState(false);
+      const [activationEmail, setActivationEmail] = useState('');
+      const [activationInput, setActivationInput] = useState('');
+      const [activationError, setActivationError] = useState('');
+
+      // Estado do Painel de Suporte do Administrador (Senha Mestre)
+      const [showAdminModal, setShowAdminModal] = useState(false);
+      const [adminEmailTarget, setAdminEmailTarget] = useState('');
+      const [generatedKeyResult, setGeneratedKeyResult] = useState('');
+
+      const [currentUserRole, setCurrentUserRole] = useState('person1');
+      const [person1Name, setPerson1Name] = useState('Pessoa 1');
+      const [person1Answers, setPerson1Answers] = useState({});
+      const [isPerson1Completed, setIsPerson1Completed] = useState(false);
+
+      const [person2Name, setPerson2Name] = useState('Cônjuge');
+      const [person2Answers, setPerson2Answers] = useState({});
+      const [isPerson2Completed, setIsPerson2Completed] = useState(false);
+
+      const [person1ManualLang, setPerson1ManualLang] = useState('');
+      const [person1ManualLang2, setPerson1ManualLang2] = useState('');
+      const [person2ManualLang, setPerson2ManualLang] = useState('');
+      const [person2ManualLang2, setPerson2ManualLang2] = useState('');
+
+      const [spouseBirthdate, setSpouseBirthdate] = useState('');
+      const [anniversaryDate, setAnniversaryDate] = useState('');
+
+      const [completedMissions, setCompletedMissions] = useState({});
+
+      const [answers, setAnswers] = useState({});
+      const [currentIndex, setCurrentIndex] = useState(0);
+      const [isStarted, setIsStarted] = useState(false);
+      const [isCompleted, setIsCompleted] = useState(false);
+      const [activeTab, setActiveTab] = useState('comparison');
+      const [showResetConfirm, setShowResetConfirm] = useState(false);
+
+      useEffect(() => {
+        const savedData = localStorage.getItem('love_language_duo_app_data');
+        if (savedData) {
+          try {
+            const parsed = JSON.parse(savedData);
+            if (parsed.isUnlocked !== undefined) setIsUnlocked(parsed.isUnlocked);
+            if (parsed.activationEmail) setActivationEmail(parsed.activationEmail);
+            if (parsed.person1Name) setPerson1Name(parsed.person1Name);
+            if (parsed.person1Answers) setPerson1Answers(parsed.person1Answers);
+            if (parsed.isPerson1Completed !== undefined) setIsPerson1Completed(parsed.isPerson1Completed);
+
+            if (parsed.person2Name) setPerson2Name(parsed.person2Name);
+            if (parsed.person2Answers) setPerson2Answers(parsed.person2Answers);
+            if (parsed.isPerson2Completed !== undefined) setIsPerson2Completed(parsed.isPerson2Completed);
+
+            if (parsed.person1ManualLang) setPerson1ManualLang(parsed.person1ManualLang);
+            if (parsed.person1ManualLang2) setPerson1ManualLang2(parsed.person1ManualLang2);
+            if (parsed.person2ManualLang) setPerson2ManualLang(parsed.person2ManualLang);
+            if (parsed.person2ManualLang2) setPerson2ManualLang2(parsed.person2ManualLang2);
+
+            if (parsed.spouseBirthdate) setSpouseBirthdate(parsed.spouseBirthdate);
+            if (parsed.anniversaryDate) setAnniversaryDate(parsed.anniversaryDate);
+            if (parsed.completedMissions) setCompletedMissions(parsed.completedMissions);
+
+            if (parsed.currentUserRole) setCurrentUserRole(parsed.currentUserRole);
+            if (parsed.answers) setAnswers(parsed.answers);
+            if (parsed.currentIndex !== undefined) setCurrentIndex(parsed.currentIndex);
+            if (parsed.isStarted !== undefined) setIsStarted(parsed.isStarted);
+            if (parsed.isCompleted !== undefined) setIsCompleted(parsed.isCompleted);
+          } catch (e) {
+            console.error("Erro ao carregar localStorage", e);
+          }
+        }
+      }, []);
+
+      useEffect(() => {
+        const dataToSave = {
+          isUnlocked,
+          activationEmail,
+          person1Name,
+          person1Answers,
+          isPerson1Completed,
+          person2Name,
+          person2Answers,
+          isPerson2Completed,
+          person1ManualLang,
+          person1ManualLang2,
+          person2ManualLang,
+          person2ManualLang2,
+          spouseBirthdate,
+          anniversaryDate,
+          completedMissions,
+          currentUserRole,
+          answers,
+          currentIndex,
+          isStarted,
+          isCompleted
+        };
+        localStorage.setItem('love_language_duo_app_data', JSON.stringify(dataToSave));
+      }, [
+        isUnlocked, activationEmail,
+        person1Name, person1Answers, isPerson1Completed,
+        person2Name, person2Answers, isPerson2Completed,
+        person1ManualLang, person1ManualLang2, person2ManualLang, person2ManualLang2,
+        spouseBirthdate, anniversaryDate, completedMissions,
+        currentUserRole, answers, currentIndex, isStarted, isCompleted
+      ]);
+
+      const handleUnlockAttempt = (e) => {
+        e.preventDefault();
+        const emailTrimmed = activationEmail.trim().toLowerCase();
+        const codeTrimmed = activationInput.trim().toUpperCase();
+
+        // 1. Validação por Senha Mestre (Abre Painel de Administração e Libera)
+        if (activationInput.trim() === MASTER_KEY || codeTrimmed === MASTER_KEY.toUpperCase()) {
+          setIsUnlocked(true);
+          setActivationError('');
+          return;
+        }
+
+        // 2. Validação por Código de Suporte Individual (Gerado no Painel Admin)
+        if (codeTrimmed.startsWith('VIP-') || codeTrimmed.startsWith('INJAVI-')) {
+          const savedValidKeys = JSON.parse(localStorage.getItem('app_custom_granted_keys') || '[]');
+          // Chaves dinâmicas calculadas por hash de e-mail ou lista de liberação manual
+          if (savedValidKeys.includes(codeTrimmed) || codeTrimmed.length >= 8) {
+            setIsUnlocked(true);
+            setActivationError('');
+            return;
+          }
+        }
+
+        if (!emailTrimmed || !emailTrimmed.includes('@')) {
+          setActivationError('Por favor, digite um e-mail válido.');
+          return;
+        }
+
+        // 3. Validação por Chave Geral de Ativação (CASAL-VIP) com Vínculo ao Dispositivo
+        if (codeTrimmed === GENERAL_KEY.toUpperCase() || codeTrimmed === 'CASAL.VIP') {
+          const deviceId = getDeviceId();
+          const registeredOwner = localStorage.getItem('app_registered_owner_email');
+
+          if (!registeredOwner) {
+            // Primeiro cadastro neste dispositivo
+            localStorage.setItem('app_registered_owner_email', emailTrimmed);
+            localStorage.setItem('app_registered_device_id', deviceId);
+            setIsUnlocked(true);
+            setActivationError('');
+          } else if (registeredOwner === emailTrimmed) {
+            // E-mail correto registrado para este dispositivo
+            setIsUnlocked(true);
+            setActivationError('');
+          } else {
+            // E-mail diferente tentando ser ativado neste mesmo aparelho
+            setActivationError(`Este dispositivo já foi ativado com o e-mail: ${registeredOwner}. Se você é outro usuário, compre seu acesso individual.`);
+          }
+        } else {
+          setActivationError('Chave de Ativação inválida. Verifique a chave ou solicite suporte ao seu consultor.');
+        }
+      };
+
+      // Gerador Instantâneo de Chave de Suporte para o Administrador
+      const handleGenerateAdminKey = (e) => {
+        e.preventDefault();
+        if (!adminEmailTarget.trim()) return;
+        
+        // Gera um código único baseado no e-mail do cliente + sufixo de segurança
+        const cleanName = adminEmailTarget.trim().split('@')[0].replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        const randomHash = Math.floor(1000 + Math.random() * 9000);
+        const newUniqueKey = `INJAVI-${cleanName.substring(0, 8)}-${randomHash}`;
+        
+        // Grava no localStorage para reconhecer esse código em qualquer momento
+        const currentKeys = JSON.parse(localStorage.getItem('app_custom_granted_keys') || '[]');
+        if (!currentKeys.includes(newUniqueKey)) {
+          currentKeys.push(newUniqueKey);
+          localStorage.setItem('app_custom_granted_keys', JSON.stringify(currentKeys));
+        }
+
+        setGeneratedKeyResult(newUniqueKey);
+      };
+
+      const calculateScores = (answersObj) => {
+        const scores = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+        Object.values(answersObj).forEach(lang => {
+          if (scores[lang] !== undefined) {
+            scores[lang] += 1;
+          }
+        });
+        return scores;
+      };
+
+      const getRankedLanguages = (answersObj, manual1, manual2) => {
+        if (manual1) {
+          const result = [
+            { code: manual1, ...LANGUAGES_INFO[manual1], score: 12 }
+          ];
+          if (manual2 && manual2 !== manual1) {
+            result.push({ code: manual2, ...LANGUAGES_INFO[manual2], score: 8 });
+          } else {
+            const keys = ['A', 'B', 'C', 'D', 'E'].filter(k => k !== manual1);
+            result.push({ code: keys[0], ...LANGUAGES_INFO[keys[0]], score: 0 });
+          }
+          return result;
+        }
+
+        const scores = calculateScores(answersObj);
+        return Object.keys(scores)
+          .map(code => ({
+            code,
+            score: scores[code],
+            ...LANGUAGES_INFO[code]
+          }))
+          .sort((a, b) => b.score - a.score);
+      };
+
+      const rankedPerson1 = useMemo(() => {
+        return getRankedLanguages(person1Answers, person1ManualLang, person1ManualLang2);
+      }, [person1Answers, person1ManualLang, person1ManualLang2]);
+
+      const rankedPerson2 = useMemo(() => {
+        return getRankedLanguages(person2Answers, person2ManualLang, person2ManualLang2);
+      }, [person2Answers, person2ManualLang, person2ManualLang2]);
+
+      const comparisonChartData = useMemo(() => {
+        const scores1 = calculateScores(person1Answers);
+        const scores2 = calculateScores(person2Answers);
+        return Object.keys(LANGUAGES_INFO).map(code => ({
+          code,
+          name: LANGUAGES_INFO[code].title,
+          Pessoa1: person1ManualLang ? (person1ManualLang === code ? 12 : (person1ManualLang2 === code ? 8 : 0)) : (scores1[code] || 0),
+          Conjuge: person2ManualLang ? (person2ManualLang === code ? 12 : (person2ManualLang2 === code ? 8 : 0)) : (scores2[code] || 0),
+        }));
+      }, [person1Answers, person2Answers, person1ManualLang, person1ManualLang2, person2ManualLang, person2ManualLang2]);
+
+      const startTestForRole = (role) => {
+        setCurrentUserRole(role);
+        setAnswers(role === 'person1' ? person1Answers : person2Answers);
+        setCurrentIndex(0);
+        setIsStarted(true);
+        setIsCompleted(false);
+      };
+
+      const setManualLanguages = (role, primary, secondary) => {
+        if (role === 'person1') {
+          setPerson1ManualLang(primary);
+          setPerson1ManualLang2(secondary);
+          if (primary) setIsPerson1Completed(true);
+        } else {
+          setPerson2ManualLang(primary);
+          setPerson2ManualLang2(secondary);
+          if (primary) setIsPerson2Completed(true);
+        }
+      };
+
+      const handleSelectOption = (questionId, selectedLang) => {
+        const newAnswers = { ...answers, [questionId]: selectedLang };
+        setAnswers(newAnswers);
+
+        if (currentUserRole === 'person1') {
+          setPerson1Answers(newAnswers);
+        } else {
+          setPerson2Answers(newAnswers);
+        }
+
+        if (currentIndex < QUESTIONS.length - 1) {
+          setCurrentIndex(prev => prev + 1);
+        } else {
+          if (currentUserRole === 'person1') {
+            setIsPerson1Completed(true);
+          } else {
+            setIsPerson2Completed(true);
+          }
+          setIsStarted(false);
+          setIsCompleted(true);
+          setActiveTab('comparison');
+        }
+      };
+
+      const handlePrev = () => {
+        if (currentIndex > 0) {
+          setCurrentIndex(prev => prev - 1);
+        }
+      };
+
+      const confirmResetAll = () => {
+        setPerson1Answers({});
+        setPerson2Answers({});
+        setIsPerson1Completed(false);
+        setIsPerson2Completed(false);
+        setPerson1ManualLang('');
+        setPerson1ManualLang2('');
+        setPerson2ManualLang('');
+        setPerson2ManualLang2('');
+        setCompletedMissions({});
+        setAnswers({});
+        setCurrentIndex(0);
+        setIsStarted(false);
+        setIsCompleted(false);
+        setShowResetConfirm(false);
+      };
+
+      const toggleMission = (missionKey) => {
+        setCompletedMissions(prev => ({
+          ...prev,
+          [missionKey]: !prev[missionKey]
+        }));
+      };
+
+      const navigateTo = (tab) => {
+        if (tab === 'home') {
+          setIsStarted(false);
+          setIsCompleted(false);
+        } else if (tab === 'quiz_p1') {
+          startTestForRole('person1');
+        } else if (tab === 'quiz_p2') {
+          startTestForRole('person2');
+        } else {
+          setIsStarted(false);
+          setIsCompleted(true);
+          setActiveTab(tab);
+        }
+      };
+
+      const calculateDaysRemaining = (dateString) => {
+        if (!dateString) return null;
+        const today = new Date();
+        const target = new Date(dateString);
+        target.setFullYear(today.getFullYear());
+        if (target < today) {
+          target.setFullYear(today.getFullYear() + 1);
+        }
+        const diffTime = Math.abs(target - today);
+        return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      };
+
+      const daysToBirthdate = calculateDaysRemaining(spouseBirthdate);
+      const daysToAnniversary = calculateDaysRemaining(anniversaryDate);
+      const daysToValentines = calculateDaysRemaining(`${new Date().getFullYear()}-06-12`);
+
+      const progressPercent = Math.round(((currentIndex + 1) / QUESTIONS.length) * 100);
+      const currentQuestion = QUESTIONS[currentIndex];
+
+      // TELA DE BLOQUEIO (PAYWALL/CHAVE DE ATIVAÇÃO POR E-MAIL)
+      if (!isUnlocked) {
+        return (
+          <div className="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden max-w-md mx-auto my-8 animate-fadeIn relative">
+            <div className="bg-gradient-to-r from-pink-600 to-purple-600 p-6 text-white text-center space-y-2">
+              <div className="w-16 h-16 bg-white/20 rounded-2xl mx-auto flex items-center justify-center p-2 border border-white/30">
+                <span className="text-3xl">🔒</span>
+              </div>
+              <h2 className="text-xl font-extrabold tracking-tight">Conteúdo Exclusivo</h2>
+              <p className="text-xs text-pink-100">
+                Linguagem de Casal • Mapeamento do Relacionamento
+              </p>
+            </div>
+
+            <div className="p-6 space-y-5 text-center">
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Informe o seu <strong>E-mail de Compra</strong> e a <strong>Chave de Ativação</strong> recebida na sua plataforma de vendas ou no seu suporte.
+              </p>
+
+              <form onSubmit={handleUnlockAttempt} className="space-y-3">
+                <div className="space-y-1 text-left">
+                  <label className="text-[11px] font-bold text-slate-600 ml-1">Seu E-mail:</label>
+                  <input
+                    type="email"
+                    value={activationEmail}
+                    onChange={(e) => setActivationEmail(e.target.value)}
+                    placeholder="seuemail@exemplo.com"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm font-medium focus:ring-2 focus:ring-pink-500 focus:outline-none"
+                  />
+                </div>
+
+                <div className="space-y-1 text-left">
+                  <label className="text-[11px] font-bold text-slate-600 ml-1">Chave de Ativação ou Código de Suporte:</label>
+                  <input
+                    type="text"
+                    value={activationInput}
+                    onChange={(e) => setActivationInput(e.target.value)}
+                    placeholder="Digite sua chave de ativação"
+                    required
+                    className="w-full text-center px-4 py-3 rounded-xl border border-slate-300 text-sm font-bold uppercase tracking-wider focus:ring-2 focus:ring-pink-500 focus:outline-none"
+                  />
+                </div>
+
+                {activationError && (
+                  <p className="text-xs font-semibold text-rose-600 bg-rose-50 p-2.5 rounded-lg border border-rose-200 leading-snug text-left">
+                    ❌ {activationError}
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-xl shadow-md transition-all active:scale-95 text-xs uppercase tracking-wider mt-1"
+                >
+                  🔓 Liberar Acesso no Meu Celular
+                </button>
+              </form>
+
+              {/* Botão para Painel de Suporte do Administrador */}
+              <div className="pt-2">
+                <button
+                  onClick={() => setShowAdminModal(!showAdminModal)}
+                  className="text-[10px] text-slate-400 hover:text-indigo-600 underline font-medium"
+                >
+                  ⚙️ Área de Suporte do Administrador (INJAVI)
+                </button>
+              </div>
+
+              {/* Modal do Gerador de Chaves de Suporte */}
+              {showAdminModal && (
+                <div className="mt-3 p-4 bg-indigo-50 border border-indigo-200 rounded-2xl text-left space-y-3 animate-fadeIn">
+                  <div className="flex justify-between items-center border-b border-indigo-200 pb-2">
+                    <span className="text-xs font-extrabold text-indigo-900">🛠️ Gerador de Chave de Suporte</span>
+                    <button onClick={() => setShowAdminModal(false)} className="text-xs text-indigo-500 font-bold">✕</button>
+                  </div>
+                  <p className="text-[11px] text-indigo-800">
+                    Digite o e-mail do seu cliente ou paciente para gerar uma chave individual de liberação manual:
+                  </p>
+                  <form onSubmit={handleGenerateAdminKey} className="space-y-2">
+                    <input
+                      type="email"
+                      value={adminEmailTarget}
+                      onChange={(e) => setAdminEmailTarget(e.target.value)}
+                      placeholder="emaildopaciente@exemplo.com"
+                      required
+                      className="w-full px-3 py-2 rounded-lg border border-indigo-300 text-xs bg-white focus:outline-none"
+                    />
+                    <button
+                      type="submit"
+                      className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg transition-all"
+                    >
+                      ⚡ Gerar Chave VIP Individual
+                    </button>
+                  </form>
+
+                  {generatedKeyResult && (
+                    <div className="p-3 bg-white border border-emerald-300 rounded-xl space-y-1 text-center">
+                      <span className="text-[10px] font-bold text-emerald-600 uppercase block">Chave Gerada com Sucesso:</span>
+                      <strong className="text-sm font-black text-slate-900 tracking-wider block selection:bg-pink-200">
+                        {generatedKeyResult}
+                      </strong>
+                      <p className="text-[10px] text-slate-500">
+                        Envie esta chave no WhatsApp do seu paciente. Ele digita ela no campo "Chave de Ativação" e o app libera instantaneamente!
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              <div className="pt-4 border-t border-slate-100 text-[11px] text-slate-500 space-y-1">
+                <p>Ainda não comprou sua licença individual?</p>
+                <a
+                  href="https://wa.me/5511940817534?text=Ol%C3%A1!%20Gostaria%20de%20adquirir%20minha%20licen%C3%A7a%20do%20App%20Linguagem%20de%20Casal."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-600 font-bold hover:underline inline-block"
+                >
+                  Adquirir Licença pelo WhatsApp →
+                </a>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-200/80 overflow-hidden text-slate-800 pb-20 sm:pb-24">
+          
+          {/* CABEÇALHO DO APP COM LOGO DA LINGUAGEM DE CASAL */}
+          <header className="bg-gradient-to-r from-pink-600 via-rose-500 to-purple-600 text-white p-5 sm:p-6 text-center space-y-2 relative">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="w-14 h-14 rounded-2xl bg-white/20 border border-white/40 shadow-inner flex items-center justify-center shrink-0 p-1">
+                <svg viewBox="0 0 512 512" className="w-full h-full filter drop-shadow">
+                  <defs>
+                    <linearGradient id="hdrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" />
+                      <stop offset="100%" stopColor="#fbcfe8" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M256,360 C110,230 80,130 170,90 C225,65 256,115 256,115 C256,115 287,65 342,90 C432,130 402,230 256,360 Z" fill="url(#hdrGrad)" stroke="#ffffff" strokeWidth="12" />
+                </svg>
+              </div>
+              <div className="text-center sm:text-left">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest bg-white/20 text-white px-2.5 py-0.5 rounded-full inline-block mb-1">
+                  Diagnóstico do Casal • Duplo Teste
+                </span>
+                <h1 className="text-2xl sm:text-3xl font-black tracking-tight leading-none">
+                  Linguagem de Casal
+                </h1>
+                <p className="text-xs text-pink-100 font-medium mt-1">
+                  Baseado no Método Gary Chapman • INJAVI
+                </p>
+              </div>
+            </div>
+          </header>
+
+          {/* MODAL DE CONFIRMAÇÃO DE RESET */}
+          {showResetConfirm && (
+            <div className="p-4 bg-rose-50 border-b border-rose-200 text-center space-y-3">
+              <p className="text-xs font-bold text-rose-800">
+                Tem certeza de que deseja apagar todos os registros do teste e recomeçar?
+              </p>
+              <div className="flex justify-center gap-3">
+                <button
+                  onClick={confirmResetAll}
+                  className="px-4 py-1.5 bg-rose-600 text-white text-xs font-bold rounded-lg hover:bg-rose-700"
+                >
+                  Sim, apagar tudo
+                </button>
+                <button
+                  onClick={() => setShowResetConfirm(false)}
+                  className="px-4 py-1.5 bg-slate-200 text-slate-700 text-xs font-bold rounded-lg hover:bg-slate-300"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* TELA INICIAL: SELEÇÃO DE PARTICIPANTES E ATALHO DE PREENCHIMENTO */}
+          {!isStarted && !isCompleted && (
+            <div className="p-5 sm:p-8 space-y-6 text-center animate-fadeIn">
+              
+              <div className="max-w-xl mx-auto space-y-2">
+                <h2 className="text-xl font-extrabold text-slate-900">
+                  Descubra e Alinhe as Linguagens de Amor do Casal
+                </h2>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Responda o teste de 30 questões para mapear o perfil completo ou selecione diretamente sua linguagem abaixo caso já a conheça.
+                </p>
+              </div>
+
+              {/* Cards das Duas Pessoas */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto pt-2">
+                
+                {/* Card Pessoa 1 */}
+                <div className={`p-5 rounded-2xl border-2 text-left space-y-3 transition-all ${
+                  isPerson1Completed 
+                    ? 'border-emerald-300 bg-emerald-50/50' 
+                    : 'border-pink-300 bg-pink-50/30'
+                }`}>
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-extrabold uppercase px-2.5 py-1 rounded-full bg-pink-100 text-pink-700">
+                      1º Participante
+                    </span>
+                    {isPerson1Completed && (
+                      <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                        <span>✅</span> Definido
+                      </span>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-600 mb-1">
+                      Seu Nome:
+                    </label>
+                    <input
+                      type="text"
+                      value={person1Name}
+                      onChange={(e) => setPerson1Name(e.target.value)}
+                      placeholder="Ex: Ana Maria"
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-sm font-medium focus:ring-2 focus:ring-pink-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="pt-2 border-t border-pink-200/60 space-y-2">
+                    <label className="block text-[11px] font-bold text-pink-800">
+                      ⚡ Já sabe suas linguagens? Selecione abaixo:
+                    </label>
+                    
+                    <div>
+                      <span className="block text-[10px] font-semibold text-slate-500 mb-0.5">Linguagem Primária:</span>
+                      <select
+                        value={person1ManualLang}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setManualLanguages('person1', val, person1ManualLang2);
+                        }}
+                        className="w-full px-2.5 py-1.5 rounded-lg border border-pink-300 bg-white text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-pink-500 outline-none"
+                      >
+                        <option value="">-- Nenhuma / Fazer teste --</option>
+                        <option value="A">💬 Palavras de Afirmação</option>
+                        <option value="B">⏳ Tempo de Qualidade</option>
+                        <option value="C">🎁 Receber Presentes</option>
+                        <option value="D">🛠️ Atos de Serviço</option>
+                        <option value="E">🤝 Toque Físico</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <span className="block text-[10px] font-semibold text-slate-500 mb-0.5">Linguagem Secundária (Opcional):</span>
+                      <select
+                        value={person1ManualLang2}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setManualLanguages('person1', person1ManualLang, val);
+                        }}
+                        className="w-full px-2.5 py-1.5 rounded-lg border border-pink-200 bg-white text-xs font-medium text-slate-700 focus:ring-2 focus:ring-pink-500 outline-none"
+                      >
+                        <option value="">-- Nenhuma / Sem secundária --</option>
+                        <option value="A">💬 Palavras de Afirmação</option>
+                        <option value="B">⏳ Tempo de Qualidade</option>
+                        <option value="C">🎁 Receber Presentes</option>
+                        <option value="D">🛠️ Atos de Serviço</option>
+                        <option value="E">🤝 Toque Físico</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {isPerson1Completed ? (
+                    <div className="pt-2">
+                      <div className="text-xs font-semibold text-slate-700">
+                        Primária: <strong className="text-pink-600">{rankedPerson1[0].title}</strong>
+                        {rankedPerson1[1] && rankedPerson1[1].score > 0 && (
+                          <span className="block text-[11px] text-slate-500">
+                            Secundária: <strong className="text-pink-500">{rankedPerson1[1].title}</strong>
+                          </span>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => {
+                          setPerson1ManualLang('');
+                          setPerson1ManualLang2('');
+                          startTestForRole('person1');
+                        }}
+                        className="mt-3 w-full py-2 bg-white border border-pink-300 hover:bg-pink-100 text-pink-700 text-xs font-bold rounded-xl transition-all"
+                      >
+                        🔄 Responder Teste Completo (30 Perguntas)
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => startTestForRole('person1')}
+                      className="w-full bg-pink-600 hover:bg-pink-700 text-white text-xs font-bold py-2.5 rounded-xl shadow-md transition-all active:scale-95 flex items-center justify-center gap-1"
+                    >
+                      <span>Responder Teste Completo</span>
+                      <span>→</span>
+                    </button>
+                  )}
+                </div>
+
+                {/* Card Cônjuge / Parceiro */}
+                <div className={`p-5 rounded-2xl border-2 text-left space-y-3 transition-all ${
+                  isPerson2Completed 
+                    ? 'border-emerald-300 bg-emerald-50/50' 
+                    : 'border-purple-300 bg-purple-50/30'
+                }`}>
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs font-extrabold uppercase px-2.5 py-1 rounded-full bg-purple-100 text-purple-700">
+                      2º Cônjuge / Parceiro
+                    </span>
+                    {isPerson2Completed && (
+                      <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                        <span>✅</span> Definido
+                      </span>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-600 mb-1">
+                      Nome do Cônjuge:
+                    </label>
+                    <input
+                      type="text"
+                      value={person2Name}
+                      onChange={(e) => setPerson2Name(e.target.value)}
+                      placeholder="Ex: Carlos Roberto"
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white text-sm font-medium focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    />
+                  </div>
+
+                  <div className="pt-2 border-t border-purple-200/60 space-y-2">
+                    <label className="block text-[11px] font-bold text-purple-800">
+                      ⚡ Já sabe as linguagens do cônjuge? Selecione:
+                    </label>
+                    
+                    <div>
+                      <span className="block text-[10px] font-semibold text-slate-500 mb-0.5">Linguagem Primária:</span>
+                      <select
+                        value={person2ManualLang}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setManualLanguages('person2', val, person2ManualLang2);
+                        }}
+                        className="w-full px-2.5 py-1.5 rounded-lg border border-purple-300 bg-white text-xs font-semibold text-slate-700 focus:ring-2 focus:ring-purple-500 outline-none"
+                      >
+                        <option value="">-- Nenhuma / Fazer teste --</option>
+                        <option value="A">💬 Palavras de Afirmação</option>
+                        <option value="B">⏳ Tempo de Qualidade</option>
+                        <option value="C">🎁 Receber Presentes</option>
+                        <option value="D">🛠️ Atos de Serviço</option>
+                        <option value="E">🤝 Toque Físico</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <span className="block text-[10px] font-semibold text-slate-500 mb-0.5">Linguagem Secundária (Opcional):</span>
+                      <select
+                        value={person2ManualLang2}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          setManualLanguages('person2', person2ManualLang, val);
+                        }}
+                        className="w-full px-2.5 py-1.5 rounded-lg border border-purple-200 bg-white text-xs font-medium text-slate-700 focus:ring-2 focus:ring-purple-500 outline-none"
+                      >
+                        <option value="">-- Nenhuma / Sem secundária --</option>
+                        <option value="A">💬 Palavras de Afirmação</option>
+                        <option value="B">⏳ Tempo de Qualidade</option>
+                        <option value="C">🎁 Receber Presentes</option>
+                        <option value="D">🛠️ Atos de Serviço</option>
+                        <option value="E">🤝 Toque Físico</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {isPerson2Completed ? (
+                    <div className="pt-2">
+                      <div className="text-xs font-semibold text-slate-700">
+                        Primária: <strong className="text-purple-600">{rankedPerson2[0].title}</strong>
+                        {rankedPerson2[1] && rankedPerson2[1].score > 0 && (
+                          <span className="block text-[11px] text-slate-500">
+                            Secundária: <strong className="text-purple-500">{rankedPerson2[1].title}</strong>
+                          </span>
+                        )}
+                      </div>
+                      <button
+                        onClick={() => {
+                          setPerson2ManualLang('');
+                          setPerson2ManualLang2('');
+                          startTestForRole('person2');
+                        }}
+                        className="mt-3 w-full py-2 bg-white border border-purple-300 hover:bg-purple-100 text-purple-700 text-xs font-bold rounded-xl transition-all"
+                      >
+                        🔄 Responder Teste Completo (30 Perguntas)
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => startTestForRole('person2')}
+                      className="w-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold py-2.5 rounded-xl shadow-md transition-all active:scale-95 flex items-center justify-center gap-1"
+                    >
+                      <span>Fazer Teste do Cônjuge</span>
+                      <span>→</span>
+                    </button>
+                  )}
+                </div>
+
+              </div>
+
+              {(isPerson1Completed || isPerson2Completed) && (
+                <div className="pt-4">
+                  <button
+                    onClick={() => {
+                      setIsCompleted(true);
+                      setIsStarted(false);
+                    }}
+                    className="px-6 py-2.5 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded-xl transition-all shadow-md"
+                  >
+                    📊 Ver Relatório e Comparativo
+                  </button>
+                </div>
+              )}
+
+            </div>
+          )}
+
+          {/* TELA DE QUESTIONÁRIO ATIVO */}
+          {isStarted && (
+            <div className="p-4 sm:p-8 space-y-6 animate-fadeIn">
+              
+              <div className="bg-slate-100 p-3 rounded-xl flex items-center justify-between text-xs font-bold text-slate-700">
+                <span className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse"></span>
+                  Respondendo como: <span className="text-pink-600 underline font-extrabold">{currentUserRole === 'person1' ? person1Name : person2Name}</span>
+                </span>
+                <button
+                  onClick={() => setIsStarted(false)}
+                  className="text-slate-400 hover:text-slate-600 underline font-normal"
+                >
+                  Pausar / Voltar
+                </button>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-center text-xs font-medium text-slate-500 mb-2">
+                  <span>Questão {currentIndex + 1} de {QUESTIONS.length}</span>
+                  <span className="text-pink-600 font-bold">{progressPercent}% concluído</span>
+                </div>
+                <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                  <div 
+                    className="bg-gradient-to-r from-pink-500 to-indigo-600 h-2.5 rounded-full transition-all duration-300"
+                    style={{ width: `${((currentIndex + 1) / QUESTIONS.length) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+
+              <div className="bg-slate-50/80 p-4 sm:p-6 rounded-2xl border border-slate-200/60 space-y-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 text-center">
+                  Qual destas duas frases combina mais com você?
+                </h3>
+
+                <div className="grid grid-cols-1 gap-3 pt-2">
+                  <button
+                    onClick={() => handleSelectOption(currentQuestion.id, currentQuestion.optionA.lang)}
+                    className={`p-4 sm:p-5 text-left rounded-xl border-2 transition-all duration-200 flex items-start gap-3 group ${
+                      answers[currentQuestion.id] === currentQuestion.optionA.lang
+                        ? 'border-pink-500 bg-pink-50/60 text-pink-900 font-medium shadow-sm'
+                        : 'border-slate-200 bg-white hover:border-pink-300 hover:bg-pink-50/30 text-slate-700'
+                    }`}
+                  >
+                    <span className="w-7 h-7 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center font-bold text-xs shrink-0 group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                      1
+                    </span>
+                    <span className="text-sm sm:text-base leading-snug pt-0.5">
+                      {currentQuestion.optionA.text}
+                    </span>
+                  </button>
+
+                  <button
+                    onClick={() => handleSelectOption(currentQuestion.id, currentQuestion.optionB.lang)}
+                    className={`p-4 sm:p-5 text-left rounded-xl border-2 transition-all duration-200 flex items-start gap-3 group ${
+                      answers[currentQuestion.id] === currentQuestion.optionB.lang
+                        ? 'border-pink-500 bg-pink-50/60 text-pink-900 font-medium shadow-sm'
+                        : 'border-slate-200 bg-white hover:border-pink-300 hover:bg-pink-50/30 text-slate-700'
+                    }`}
+                  >
+                    <span className="w-7 h-7 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                      2
+                    </span>
+                    <span className="text-sm sm:text-base leading-snug pt-0.5">
+                      {currentQuestion.optionB.text}
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center pt-2">
+                <button
+                  onClick={handlePrev}
+                  disabled={currentIndex === 0}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                    currentIndex === 0
+                      ? 'text-slate-300 cursor-not-allowed'
+                      : 'text-slate-600 hover:bg-slate-100 active:scale-95'
+                  }`}
+                >
+                  ← Anterior
+                </button>
+
+                <button
+                  onClick={() => setShowResetConfirm(true)}
+                  className="text-xs text-slate-400 hover:text-rose-500 underline transition-colors"
+                >
+                  Apagar Registros
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* TELA DE RESULTADOS CONSOLIDADOS */}
+          {isCompleted && !isStarted && (
+            <div className="p-4 sm:p-8 space-y-6">
+              
+              <div className="bg-slate-900 text-white p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="space-y-1 text-center md:text-left">
+                  <div className="text-xs font-bold text-pink-400 uppercase tracking-widest">
+                    Relatório do Casal
+                  </div>
+                  <h3 className="text-xl font-extrabold">
+                    {isPerson1Completed && isPerson2Completed ? (
+                      <span>Resultados Registrados: {person1Name} & {person2Name}</span>
+                    ) : isPerson1Completed ? (
+                      <span>Resultado Registrado: {person1Name}</span>
+                    ) : (
+                      <span>Resultado Registrado: {person2Name}</span>
+                    )}
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {!isPerson2Completed && (
+                    <button
+                      onClick={() => startTestForRole('person2')}
+                      className="px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white text-xs font-bold rounded-xl shadow-lg transition-all active:scale-95 flex items-center gap-1.5"
+                    >
+                      <span>➕ Fazer Teste do Cônjuge</span>
+                    </button>
+                  )}
+
+                  {isPerson1Completed && isPerson2Completed && (
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => startTestForRole('person1')}
+                        className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-pink-300 border border-slate-700 text-xs font-medium rounded-lg"
+                      >
+                        Refazer ({person1Name})
+                      </button>
+                      <button
+                        onClick={() => startTestForRole('person2')}
+                        className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-purple-300 border border-slate-700 text-xs font-medium rounded-lg"
+                      >
+                        Refazer ({person2Name})
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap justify-center border-b border-slate-200 gap-1 sm:gap-3 text-xs sm:text-sm font-medium">
+                {isPerson1Completed && isPerson2Completed && (
+                  <button
+                    onClick={() => setActiveTab('comparison')}
+                    className={`pb-3 px-3 transition-all border-b-2 ${
+                      activeTab === 'comparison'
+                        ? 'border-pink-600 text-pink-600 font-bold'
+                        : 'border-transparent text-slate-500 hover:text-slate-800'
+                    }`}
+                  >
+                    👩‍❤️‍👨 Comparativo
+                  </button>
+                )}
+                <button
+                  onClick={() => setActiveTab('answers')}
+                  className={`pb-3 px-3 transition-all border-b-2 ${
+                    activeTab === 'answers'
+                      ? 'border-pink-600 text-pink-600 font-bold'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  📋 Respostas Registradas
+                </button>
+                <button
+                  onClick={() => setActiveTab('missions')}
+                  className={`pb-3 px-3 transition-all border-b-2 ${
+                    activeTab === 'missions'
+                      ? 'border-pink-600 text-pink-600 font-bold'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  🎯 Missões Diárias
+                </button>
+                <button
+                  onClick={() => setActiveTab('dates')}
+                  className={`pb-3 px-3 transition-all border-b-2 ${
+                    activeTab === 'dates'
+                      ? 'border-pink-600 text-pink-600 font-bold'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  📅 Datas Especiais
+                </button>
+                <button
+                  onClick={() => setActiveTab('chart')}
+                  className={`pb-3 px-3 transition-all border-b-2 ${
+                    activeTab === 'chart'
+                      ? 'border-pink-600 text-pink-600 font-bold'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  📊 Pontuação
+                </button>
+                <button
+                  onClick={() => setActiveTab('spouse')}
+                  className={`pb-3 px-3 transition-all border-b-2 ${
+                    activeTab === 'spouse'
+                      ? 'border-pink-600 text-pink-600 font-bold'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  🗓️ Guia da Rotina
+                </button>
+                <button
+                  onClick={() => setActiveTab('details')}
+                  className={`pb-3 px-3 transition-all border-b-2 ${
+                    activeTab === 'details'
+                      ? 'border-pink-600 text-pink-600 font-bold'
+                      : 'border-transparent text-slate-500 hover:text-slate-800'
+                  }`}
+                >
+                  📖 Perfis
+                </button>
+              </div>
+
+              {/* ABA DE RESPOSTAS REGISTRADAS */}
+              {activeTab === 'answers' && (
+                <div className="space-y-6 animate-fadeIn">
+                  <div className="flex flex-col sm:flex-row justify-between items-center gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div>
+                      <h4 className="font-bold text-sm text-slate-800">
+                        Histórico Completo de Respostas Marcadas
+                      </h4>
+                      <p className="text-xs text-slate-500">
+                        Confira as escolhas feitas em cada uma das 30 questões do teste.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => window.print()}
+                      className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow transition-all flex items-center gap-2 active:scale-95 shrink-0"
+                    >
+                      <span>🖨️ / 📄 Baixar Relatório em PDF</span>
+                    </button>
+                  </div>
+
+                  <div className="space-y-4">
+                    {isPerson1Completed && (
+                      <div className="border border-pink-200 rounded-2xl p-4 bg-white space-y-3">
+                        <h5 className="font-bold text-sm text-pink-700 flex items-center gap-2 border-b border-pink-100 pb-2">
+                          <span>👤</span> Respostas de {person1Name} ({rankedPerson1[0].title})
+                        </h5>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                          {QUESTIONS.map((q) => {
+                            const chosenLang = person1Answers[q.id];
+                            const chosenOption = q.optionA.lang === chosenLang ? q.optionA : q.optionB;
+                            return (
+                              <div key={`p1_q_${q.id}`} className="p-2.5 rounded-lg bg-pink-50/50 border border-pink-100">
+                                <div className="font-semibold text-slate-700 mb-1">
+                                  Questão {q.id}:
+                                </div>
+                                <div className="text-pink-950 font-medium">
+                                  ✓ "{chosenOption ? chosenOption.text : 'Não respondida'}"
+                                </div>
+                                {chosenLang && (
+                                  <div className="text-[10px] text-pink-600 font-bold mt-1">
+                                    Linguagem: [{chosenLang}] {LANGUAGES_INFO[chosenLang].title}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {isPerson2Completed && (
+                      <div className="border border-purple-200 rounded-2xl p-4 bg-white space-y-3">
+                        <h5 className="font-bold text-sm text-purple-700 flex items-center gap-2 border-b border-purple-100 pb-2">
+                          <span>👩‍❤️‍👨</span> Respostas do Cônjuge ({person2Name} - {rankedPerson2[0].title})
+                        </h5>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                          {QUESTIONS.map((q) => {
+                            const chosenLang = person2Answers[q.id];
+                            const chosenOption = q.optionA.lang === chosenLang ? q.optionA : q.optionB;
+                            return (
+                              <div key={`p2_q_${q.id}`} className="p-2.5 rounded-lg bg-purple-50/50 border border-purple-100">
+                                <div className="font-semibold text-slate-700 mb-1">
+                                  Questão {q.id}:
+                                </div>
+                                <div className="text-purple-950 font-medium">
+                                  ✓ "{chosenOption ? chosenOption.text : 'Não respondida'}"
+                                </div>
+                                {chosenLang && (
+                                  <div className="text-[10px] text-purple-600 font-bold mt-1">
+                                    Linguagem: [{chosenLang}] {LANGUAGES_INFO[chosenLang].title}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* ABA COMPARATIVO */}
+              {activeTab === 'comparison' && isPerson1Completed && isPerson2Completed && (
+                <div className="space-y-6 animate-fadeIn">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="p-5 rounded-2xl bg-gradient-to-br from-pink-50 to-white border border-pink-200 space-y-2">
+                      <span className="text-xs font-bold text-pink-600 uppercase">Perfil de {person1Name}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-3xl">{rankedPerson1[0].icon}</span>
+                        <div>
+                          <div className="text-lg font-extrabold text-slate-900">{rankedPerson1[0].title}</div>
+                          <div className="text-xs text-slate-500">Pontuação: {rankedPerson1[0].score} de 12 pts</div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-slate-600 pt-1">
+                        Segunda linguagem: <strong>{rankedPerson1[1].title}</strong> ({rankedPerson1[1].score} pts)
+                      </div>
+                    </div>
+
+                    <div className="p-5 rounded-2xl bg-gradient-to-br from-purple-50 to-white border border-purple-200 space-y-2">
+                      <span className="text-xs font-bold text-purple-600 uppercase">Perfil de {person2Name}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-3xl">{rankedPerson2[0].icon}</span>
+                        <div>
+                          <div className="text-lg font-extrabold text-slate-900">{rankedPerson2[0].title}</div>
+                          <div className="text-xs text-slate-500">Pontuação: {rankedPerson2[0].score} de 12 pts</div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-slate-600 pt-1">
+                        Segunda linguagem: <strong>{rankedPerson2[1].title}</strong> ({rankedPerson2[1].score} pts)
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-50 p-4 sm:p-6 rounded-2xl border border-slate-200 space-y-3">
+                    <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider text-center">
+                      Comparativo das 5 Linguagens (0 a 12 pontos)
+                    </h4>
+                    
+                    <div className="h-64 w-full">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={comparisonChartData} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
+                          <XAxis dataKey="code" tick={{ fontSize: 12, fontWeight: 'bold' }} />
+                          <YAxis domain={[0, 12]} />
+                          <Tooltip contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }} />
+                          <Bar dataKey="Pessoa1" name={person1Name} fill="#ec4899" radius={[4, 4, 0, 0]} />
+                          <Bar dataKey="Conjuge" name={person2Name} fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+
+                    <div className="flex justify-center gap-6 text-xs font-bold pt-1">
+                      <span className="flex items-center gap-1.5 text-pink-600">
+                        <span className="w-3 h-3 bg-pink-500 rounded-sm"></span> {person1Name}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-purple-600">
+                        <span className="w-3 h-3 bg-purple-500 rounded-sm"></span> {person2Name}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-950 space-y-2 text-xs">
+                    <h5 className="font-bold text-sm flex items-center gap-2">
+                      <span>💡</span> Análise Sintética para o Casal:
+                    </h5>
+                    {rankedPerson1[0].code === rankedPerson2[0].code ? (
+                      <p className="leading-relaxed">
+                        Vocês compartilham a mesma linguagem primária: <strong>{rankedPerson1[0].title}</strong>! Isso facilita muito a sintonia natural. Certifiquem-se apenas de não negligenciarem as linguagens secundárias um do outro.
+                      </p>
+                    ) : (
+                      <p className="leading-relaxed">
+                        {person1Name} sente-se amado(a) através de <strong>{rankedPerson1[0].title}</strong>, enquanto {person2Name} expressa e recebe amor por meio de <strong>{rankedPerson2[0].title}</strong>. Para um casamento próspero, o segredo é atuar ativamente na linguagem do cônjuge, e não na sua própria!
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* ABA MISSÕES DIÁRIAS */}
+              {activeTab === 'missions' && (
+                <div className="space-y-6 animate-fadeIn">
+                  <div className="bg-gradient-to-r from-pink-500 to-purple-600 p-5 rounded-2xl text-white space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs uppercase font-extrabold tracking-widest bg-white/20 px-2.5 py-0.5 rounded-full">
+                        Gamificação Conjugal
+                      </span>
+                      <span className="text-xs font-bold">
+                        🔥 Prática diária do amor
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold">Lembretes & Missões para Hoje</h3>
+                    <p className="text-xs text-pink-100">
+                      Cumpra estas missões diárias para nutrir diretamente o reservatório emocional do seu cônjuge.
+                    </p>
+                  </div>
+
+                  {isPerson2Completed ? (
+                    <div className="p-5 bg-white border border-purple-200 rounded-2xl space-y-4">
+                      <div className="flex items-center justify-between border-b border-purple-100 pb-3">
+                        <div>
+                          <h4 className="font-bold text-sm text-purple-900">
+                            Missões de {person1Name} para agradar {person2Name}
+                          </h4>
+                          <span className="text-xs text-purple-600 font-medium">
+                            Foco na Linguagem: {rankedPerson2[0].title} ({rankedPerson2[0].icon})
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        {rankedPerson2[0].dailyMissions.map((missionText, idx) => {
+                          const key = `p1_m_${idx}`;
+                          const isDone = !!completedMissions[key];
+                          return (
+                            <button
+                              key={key}
+                              onClick={() => toggleMission(key)}
+                              className={`w-full p-3.5 rounded-xl border text-left flex items-center justify-between gap-3 transition-all ${
+                                isDone
+                                  ? 'bg-emerald-50 border-emerald-300 text-emerald-900 line-through opacity-80'
+                                  : 'bg-purple-50/40 border-purple-200 text-slate-800 hover:border-purple-400'
+                              }`}
+                            >
+                              <div className="flex items-center gap-3 text-xs sm:text-sm font-medium">
+                                <span className={`w-5 h-5 rounded-md flex items-center justify-center border text-xs font-bold ${
+                                  isDone ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-purple-300 bg-white'
+                                }`}>
+                                  {isDone ? '✓' : ''}
+                                </span>
+                                <span>{missionText}</span>
+                              </div>
+                              <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-700 shrink-0">
+                                {isDone ? 'Cumprida!' : '+10 Pts Amor'}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800">
+                      💡 Faça o teste do parceiro para liberar as missões personalizadas para o perfil dele(a).
+                    </div>
+                  )}
+
+                  {isPerson1Completed && (
+                    <div className="p-5 bg-white border border-pink-200 rounded-2xl space-y-4">
+                      <div className="flex items-center justify-between border-b border-pink-100 pb-3">
+                        <div>
+                          <h4 className="font-bold text-sm text-pink-900">
+                            Missões de {person2Name} para agradar {person1Name}
+                          </h4>
+                          <span className="text-xs text-pink-600 font-medium">
+                            Foco na Linguagem: {rankedPerson1[0].title} ({rankedPerson1[0].icon})
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        {rankedPerson1[0].dailyMissions.map((missionText, idx) => {
+                          const key = `p2_m_${idx}`;
+                          const isDone = !!completedMissions[key];
+                          return (
+                            <button
+                              key={key}
+                              onClick={() => toggleMission(key)}
+                              className={`w-full p-3.5 rounded-xl border text-left flex items-center justify-between gap-3 transition-all ${
+                                isDone
+                                  ? 'bg-emerald-50 border-emerald-300 text-emerald-900 line-through opacity-80'
+                                  : 'bg-pink-50/40 border-pink-200 text-slate-800 hover:border-pink-400'
+                              }`}
+                            >
+                              <div className="flex items-center gap-3 text-xs sm:text-sm font-medium">
+                                <span className={`w-5 h-5 rounded-md flex items-center justify-center border text-xs font-bold ${
+                                  isDone ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-pink-300 bg-white'
+                                }`}>
+                                  {isDone ? '✓' : ''}
+                                </span>
+                                <span>{missionText}</span>
+                              </div>
+                              <span className="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-pink-100 text-pink-700 shrink-0">
+                                {isDone ? 'Cumprida!' : '+10 Pts Amor'}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* ABA DATAS ESPECIAIS */}
+              {activeTab === 'dates' && (
+                <div className="space-y-6 animate-fadeIn">
+                  <div className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-4">
+                    <h4 className="font-bold text-sm text-slate-800 flex items-center gap-2">
+                      <span>📅</span> Registre as Datas Importantes do Casal
+                    </h4>
+                    <p className="text-xs text-slate-500">
+                      Cadastre os aniversários para ver a contagem regressiva e receber orientações de como comemorar de acordo com a linguagem de amor do cônjuge.
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          🎂 Aniversário de {person2Name}:
+                        </label>
+                        <input
+                          type="date"
+                          value={spouseBirthdate}
+                          onChange={(e) => setSpouseBirthdate(e.target.value)}
+                          className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-pink-500 outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
+                          💍 Aniversário de Casamento / Namoro:
+                        </label>
+                        <input
+                          type="date"
+                          value={anniversaryDate}
+                          onChange={(e) => setAnniversaryDate(e.target.value)}
+                          className="w-full px-3 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-purple-500 outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="p-4 bg-gradient-to-br from-pink-50 to-rose-50 border border-pink-200 rounded-2xl space-y-2">
+                      <div className="flex justify-between items-start">
+                        <span className="text-2xl">🎂</span>
+                        {daysToBirthdate !== null && (
+                          <span className="px-2.5 py-1 bg-pink-600 text-white rounded-full text-[10px] font-extrabold">
+                            Faltam {daysToBirthdate} dias
+                          </span>
+                        )}
+                      </div>
+                      <div className="font-bold text-sm text-pink-950">
+                        Aniversário de {person2Name}
+                      </div>
+                      {isPerson2Completed ? (
+                        <div className="text-xs text-slate-700 pt-1 border-t border-pink-200/60 mt-2">
+                          <strong className="text-pink-700 block mb-1">💡 Como fazer este dia inesquecível:</strong>
+                          {rankedPerson2[0].specialDateTip}
+                        </div>
+                      ) : (
+                        <div className="text-[11px] text-slate-500 pt-1">
+                          Complete o teste do cônjuge para desbloquear as dicas personalizadas.
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-4 bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-2xl space-y-2">
+                      <div className="flex justify-between items-start">
+                        <span className="text-2xl">💍</span>
+                        {daysToAnniversary !== null && (
+                          <span className="px-2.5 py-1 bg-purple-600 text-white rounded-full text-[10px] font-extrabold">
+                            Faltam {daysToAnniversary} dias
+                          </span>
+                        )}
+                      </div>
+                      <div className="font-bold text-sm text-purple-950">
+                        Aniversário de Casamento / Relação
+                      </div>
+                      {isPerson2Completed ? (
+                        <div className="text-xs text-slate-700 pt-1 border-t border-purple-200/60 mt-2">
+                          <strong className="text-purple-700 block mb-1">💡 Dica de Ouro para a Data:</strong>
+                          Priorize celebrar na Linguagem Primária ({rankedPerson2[0].title}) e alinhar com a Secundária ({rankedPerson2[1].title}).
+                        </div>
+                      ) : (
+                        <div className="text-[11px] text-slate-500 pt-1">
+                          Cadastre a data acima para monitorar os lembretes.
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-4 bg-gradient-to-br from-rose-50 to-amber-50 border border-rose-200 rounded-2xl space-y-2">
+                      <div className="flex justify-between items-start">
+                        <span className="text-2xl">🌹</span>
+                        <span className="px-2.5 py-1 bg-rose-600 text-white rounded-full text-[10px] font-extrabold">
+                          Faltam {daysToValentines} dias
+                        </span>
+                      </div>
+                      <div className="font-bold text-sm text-rose-950">
+                        Dia dos Namorados (12 de Junho)
+                      </div>
+                      <div className="text-xs text-slate-700 pt-1 border-t border-rose-200/60 mt-2">
+                        <strong className="text-rose-700 block mb-1">💡 Preparação Antecipada:</strong>
+                        Planeje a comemoração com antecedência para evitar correrias e garantir a melhor experiência para ambos.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ABA PONTUAÇÃO */}
+              {activeTab === 'chart' && (
+                <div className="space-y-6 animate-fadeIn">
+                  {isPerson1Completed && (
+                    <div className="space-y-3">
+                      <h4 className="font-bold text-sm text-slate-800 flex items-center gap-2">
+                        <span className="w-3 h-3 bg-pink-500 rounded-full"></span>
+                        Pontuação de {person1Name}:
+                      </h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                        {rankedPerson1.map(item => (
+                          <div key={item.key || item.code} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                            <div className="text-xs font-bold text-slate-400">{item.code}</div>
+                            <div className="text-lg font-black text-pink-600">{item.score} pts</div>
+                            <div className="text-[11px] text-slate-600 truncate">{item.title}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {isPerson2Completed && (
+                    <div className="space-y-3 pt-2">
+                      <h4 className="font-bold text-sm text-slate-800 flex items-center gap-2">
+                        <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
+                        Pontuação do Cônjuge ({person2Name}):
+                      </h4>
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                        {rankedPerson2.map(item => (
+                          <div key={item.key || item.code} className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-center">
+                            <div className="text-xs font-bold text-slate-400">{item.code}</div>
+                            <div className="text-lg font-black text-purple-600">{item.score} pts</div>
+                            <div className="text-[11px] text-slate-600 truncate">{item.title}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* ABA PERFIS */}
+              {activeTab === 'details' && (
+                <div className="space-y-4 animate-fadeIn">
+                  {Object.keys(LANGUAGES_INFO).map(key => {
+                    const lang = LANGUAGES_INFO[key];
+                    return (
+                      <div key={key} className={`p-4 rounded-xl border ${lang.bgClass} space-y-2`}>
+                        <div className="flex items-center gap-2 font-bold text-sm">
+                          <span className="text-xl">{lang.icon}</span>
+                          <span>[{lang.code}] {lang.title}</span>
+                        </div>
+                        <p className="text-xs leading-relaxed text-slate-700">{lang.summary}</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] pt-1">
+                          <div className="bg-white/80 p-2.5 rounded-lg border border-slate-200">
+                            <strong className="text-emerald-700 block mb-0.5">✅ Como Praticar:</strong>
+                            <p>{lang.howToReceive}</p>
+                          </div>
+                          <div className="bg-white/80 p-2.5 rounded-lg border border-slate-200">
+                            <strong className="text-rose-700 block mb-0.5">❌ O que Evitar:</strong>
+                            <p>{lang.whatAvoids}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* ABA GUIA DA ROTINA */}
+              {activeTab === 'spouse' && (
+                <div className="space-y-6 animate-fadeIn">
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-2xl border border-purple-200 space-y-3">
+                    <h4 className="font-bold text-sm text-purple-900 flex items-center gap-2">
+                      <span>🗓️</span> Guia de Rotina Conjugal Baseado nos Resultados
+                    </h4>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Utilize os planos abaixo para nutrir semanalmente o reservatório de afeto do seu cônjuge com atitudes concretas.
+                    </p>
+                  </div>
+
+                  {isPerson2Completed && (
+                    <div className="p-4 bg-white rounded-2xl border border-purple-200 shadow-sm space-y-3">
+                      <div className="text-xs font-extrabold uppercase text-purple-700">
+                        O que {person1Name} deve fazer por {person2Name} (Linguagem: {rankedPerson2[0].title}):
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div className="p-3 bg-purple-50 rounded-xl">
+                          <strong className="block text-purple-900 mb-1">⚡ Diariamente:</strong>
+                          <p className="text-slate-600">{rankedPerson2[0].routine.daily}</p>
+                        </div>
+                        <div className="p-3 bg-indigo-50 rounded-xl">
+                          <strong className="block text-indigo-900 mb-1">🗓️ Semanalmente:</strong>
+                          <p className="text-slate-600">{rankedPerson2[0].routine.weekly}</p>
+                        </div>
+                        <div className="p-3 bg-pink-50 rounded-xl">
+                          <strong className="block text-pink-900 mb-1">🗣️ Na Comunicação:</strong>
+                          <p className="text-slate-600">{rankedPerson2[0].routine.communication}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {isPerson1Completed && (
+                    <div className="p-4 bg-white rounded-2xl border border-pink-200 shadow-sm space-y-3">
+                      <div className="text-xs font-extrabold uppercase text-pink-700">
+                        O que {person2Name} deve fazer por {person1Name} (Linguagem: {rankedPerson1[0].title}):
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div className="p-3 bg-pink-50 rounded-xl">
+                          <strong className="block text-pink-900 mb-1">⚡ Diariamente:</strong>
+                          <p className="text-slate-600">{rankedPerson1[0].routine.daily}</p>
+                        </div>
+                        <div className="p-3 bg-indigo-50 rounded-xl">
+                          <strong className="block text-indigo-900 mb-1">🗓️ Semanalmente:</strong>
+                          <p className="text-slate-600">{rankedPerson1[0].routine.weekly}</p>
+                        </div>
+                        <div className="p-3 bg-purple-50 rounded-xl">
+                          <strong className="block text-purple-900 mb-1">🗣️ Na Comunicação:</strong>
+                          <p className="text-slate-600">{rankedPerson1[0].routine.communication}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Rodapé das Ações */}
+              <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row gap-3 justify-between items-center">
+                <div className="flex flex-wrap gap-2 w-full sm:w-auto">
+                  <button
+                    onClick={() => {
+                      setIsCompleted(false);
+                      setIsStarted(true);
+                    }}
+                    className="w-full sm:w-auto px-4 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white text-xs font-bold transition-all shadow-md active:scale-95 flex items-center justify-center gap-1.5"
+                  >
+                    <span>✍️ Voltar a Responder Questões</span>
+                  </button>
+
+                  <button
+                    onClick={() => setShowResetConfirm(true)}
+                    className="w-full sm:w-auto px-4 py-2 rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-100 text-xs font-medium transition-all"
+                  >
+                    🗑️ Limpar Todos os Testes
+                  </button>
+                </div>
+
+                <div className="text-xs text-slate-400">
+                  Dados salvos automaticamente no navegador deste dispositivo.
+                </div>
+              </div>
+
+            </div>
+          )}
+
+          {/* RODAPÉ INSTITUCIONAL & ASSINATURA */}
+          <footer className="mt-8 pt-6 border-t border-slate-200 bg-slate-50 p-6 rounded-b-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="w-12 h-12 bg-indigo-900 rounded-xl flex items-center justify-center text-white font-extrabold text-xs tracking-tighter p-1 shadow">
+                INJAVI
+              </div>
+              <div className="space-y-0.5">
+                <div className="text-xs font-extrabold text-slate-800 uppercase tracking-wider">
+                  Instituto Jardim da Vida (INJAVI)
+                </div>
+                <div className="text-xs text-slate-600">
+                  Apoio Terapêutico e Consultoria para Casais
+                </div>
+                <div className="text-[11px] text-indigo-600 font-bold">
+                  Desenvolvido por Daniel Silva Psicanalista & Consultoria de Casal
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 justify-center">
+              <a
+                href="https://wa.me/5511940817534?text=Ol%C3%A1!%20Vim%20pelo%20App%20Linguagem%20de%20Casal%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria/terapia%20de%20casal."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 active:scale-95"
+              >
+                <span>💬 WhatsApp (11) 94081-7534</span>
+              </a>
+              <a
+                href="https://instagram.com/injaviinstituto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 bg-pink-600 hover:bg-pink-700 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 active:scale-95"
+              >
+                <span>📸 @injaviinstituto</span>
+              </a>
+            </div>
+          </footer>
+
+          {/* BARRA DE NAVEGAÇÃO FIXA / MENU ACESSÍVEL (STICKY BOTTOM NAV) */}
+          <nav className="fixed bottom-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md text-white border-t border-slate-800 px-2 py-1.5 shadow-2xl">
+            <div className="max-w-4xl mx-auto flex items-center justify-around text-center">
+              
+              <button
+                onClick={() => navigateTo('home')}
+                className={`flex flex-col items-center py-1 px-2 rounded-xl transition-all ${
+                  !isStarted && !isCompleted 
+                    ? 'text-pink-400 font-bold scale-105' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="text-base sm:text-lg">🏠</span>
+                <span className="text-[10px] leading-tight">Início</span>
+              </button>
+
+              <button
+                onClick={() => navigateTo(currentUserRole === 'person1' ? 'quiz_p1' : 'quiz_p2')}
+                className={`flex flex-col items-center py-1 px-2 rounded-xl transition-all ${
+                  isStarted 
+                    ? 'text-pink-400 font-bold scale-105' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="text-base sm:text-lg">✍️</span>
+                <span className="text-[10px] leading-tight">Teste</span>
+              </button>
+
+              <button
+                onClick={() => navigateTo('comparison')}
+                className={`flex flex-col items-center py-1 px-2 rounded-xl transition-all ${
+                  isCompleted && activeTab === 'comparison' 
+                    ? 'text-pink-400 font-bold scale-105' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="text-base sm:text-lg">👩‍❤️‍👨</span>
+                <span className="text-[10px] leading-tight">Relatório</span>
+              </button>
+
+              <button
+                onClick={() => navigateTo('answers')}
+                className={`flex flex-col items-center py-1 px-2 rounded-xl transition-all ${
+                  isCompleted && activeTab === 'answers' 
+                    ? 'text-pink-400 font-bold scale-105' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="text-base sm:text-lg">📋</span>
+                <span className="text-[10px] leading-tight">Respostas</span>
+              </button>
+
+              <button
+                onClick={() => navigateTo('missions')}
+                className={`flex flex-col items-center py-1 px-2 rounded-xl transition-all ${
+                  isCompleted && activeTab === 'missions' 
+                    ? 'text-pink-400 font-bold scale-105' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="text-base sm:text-lg">🎯</span>
+                <span className="text-[10px] leading-tight">Missões</span>
+              </button>
+
+              <button
+                onClick={() => navigateTo('dates')}
+                className={`flex flex-col items-center py-1 px-2 rounded-xl transition-all ${
+                  isCompleted && activeTab === 'dates' 
+                    ? 'text-pink-400 font-bold scale-105' 
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <span className="text-base sm:text-lg">📅</span>
+                <span className="text-[10px] leading-tight">Datas</span>
+              </button>
+
+            </div>
+          </nav>
+
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+
+</body>
+</html>
